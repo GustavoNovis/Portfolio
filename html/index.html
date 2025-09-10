@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfólio | Gustavo Novis</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" type="image/x-icon" href="cpu.png">
+    <style>
+        :root {
+            --primary-dark: #000;
+            --primary-blue: #000037;
+            --accent-blue: #00004b;
+            --accent-light: #0044aa;
+            --text-color: #ffffff;
+            --light-gray: #a5a5a5;
+            --card-bg: rgba(10, 10, 42, 0.8);
+            --shadow: rgba(0, 0, 0, 0.5);
+            --highlight-color: #0066ff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #000000;
+            color: var(--text-color);
+            line-height: 1.6;
+            font-size: 18px;
+            padding: 20px;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .main-container {
+            width: 100%;
+            max-width: 1200px;
+            position: relative;
+            padding: 20px;
+        }
+
+        /* Efeito de borda animada */
+        .animated-border {
+            position: relative;
+            padding: 6px;
+            border-radius: 20px;
+            background: linear-gradient(45deg, #000000, #000037, #00004b, #000037, #000000);
+            background-size: 300% 300%;
+            animation: borderAnimation 8s ease infinite;
+            box-shadow: 0 0 25px rgba(0, 68, 170, 0.5);
+        }
+
+        @keyframes borderAnimation {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .portfolio-container {
+            background: #000000;
+            border-radius: 15px;
+            overflow: hidden;
+            padding: 0;
+        }
+
+        /* Header com imagem de fundo */
+        .header {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 55, 0.7)), url('https://images.unsplash.com/photo-1461749280684-dccba630e2f6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1500&q=80') no-repeat center center;
+            background-size: cover;
+            padding: 40px 20px;
+            text-align: center;
+            position: relative;
+            min-height: 300px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .header-content {
+            max-width: 900px;
+            width: 100%;
+            z-index: 2;
+        }
+
+        .header h1 {
+            font-size: 2.8rem;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+            color: #fff;
+        }
+
+        .contact-info {
+            margin-bottom: 20px;
+        }
+
+        .contact-info p {
+            margin: 8px 0;
+            font-size: 1.1rem;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .social-links a {
+            color: #fff;
+            text-decoration: none;
+            padding: 10px 20px;
+            border: 1px solid var(--light-gray);
+            border-radius: 30px;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(0, 0, 0, 0.4);
+        }
+
+        .social-links a:hover {
+            background: var(--accent-light);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 68, 170, 0.4);
+        }
+
+        /* Seções de conteúdo com gradiente azul */
+        .section {
+            padding: 30px;
+            margin: 20px;
+            border-radius: 12px;
+            background: linear-gradient(90deg, #000000, #000037, #00004b, #000037, #000000);
+            background-size: 300% 100%;
+            animation: gradientShift 8s ease infinite;
+            position: relative;
+            border: 1px solid rgba(0, 68, 170, 0.3);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .section h2 {
+            color: var(--light-gray);
+            margin-bottom: 20px;
+            font-size: 1.8rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            border-bottom: 1px solid var(--accent-blue);
+            padding-bottom: 10px;
+        }
+
+        .section p, .section li {
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+        }
+
+        .section ul {
+            padding-left: 20px;
+        }
+
+        .section li {
+            margin-bottom: 12px;
+            position: relative;
+        }
+
+        .section li::before {
+            content: "•";
+            color: var(--accent-light);
+            font-weight: bold;
+            display: inline-block;
+            width: 1em;
+            margin-left: -1em;
+        }
+
+        .item {
+            margin-bottom: 25px;
+            padding-left: 15px;
+            border-left: 3px solid var(--accent-blue);
+            transition: all 0.3s ease;
+        }
+
+        .item-main {
+            border-left: 3px solid var(--highlight-color);
+            background: rgba(0, 51, 102, 0.2);
+            padding: 20px;
+            border-radius: 8px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .item-main::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(0, 102, 255, 0.1), transparent);
+            animation: shine 3s infinite;
+        }
+
+        @keyframes shine {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+
+        .item-main h3 {
+            color: var(--highlight-color) !important;
+            font-size: 1.4rem !important;
+        }
+
+        .item-main .degree-badge {
+            display: inline-block;
+            background: var(--highlight-color);
+            color: white;
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            margin-left: 10px;
+            vertical-align: middle;
+        }
+
+        .item h3 {
+            color: #ffffff;
+            margin-bottom: 5px;
+            font-size: 1.3rem;
+        }
+
+        .item p {
+            color: var(--light-gray);
+            font-style: italic;
+        }
+
+        /* Rodapé */
+        footer {
+            text-align: center;
+            padding: 20px;
+            margin-top: 20px;
+            font-size: 1rem;
+            color: #ffffff;
+            background: linear-gradient(90deg, #000000, #000037, #00004b, #000037, #000000);
+            background-size: 300% 100%;
+            animation: gradientShift 8s ease infinite;
+            border-top: 1px solid var(--accent-light);
+        }
+
+        /* Efeitos de destaque */
+        .highlight {
+            color: var(--accent-light);
+            font-weight: bold;
+        }
+
+        /* Responsividade */
+        @media (max-width: 992px) {
+            .main-container {
+                padding: 15px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+                font-size: 16px;
+            }
+            
+            .header {
+                min-height: 250px;
+                padding: 30px 15px;
+            }
+            
+            .header h1 {
+                font-size: 2.2rem;
+            }
+            
+            .section {
+                padding: 20px 15px;
+                margin: 15px 10px;
+            }
+            
+            .social-links {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .social-links a {
+                width: 200px;
+                justify-content: center;
+            }
+            
+            .item-main .degree-badge {
+                display: block;
+                margin: 10px 0 0 0;
+                width: fit-content;
+            }
+        }
+
+        @media (max-width: 480px) {
+            body {
+                padding: 5px;
+            }
+            
+            .header h1 {
+                font-size: 1.8rem;
+            }
+            
+            .section h2 {
+                font-size: 1.5rem;
+            }
+            
+            .animated-border {
+                padding: 4px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="main-container">
+        <div class="animated-border">
+            <div class="portfolio-container">
+                <!-- Cabeçalho com informações de contato -->
+                <header class="header">
+                    <div class="header-content">
+                        <h1>Gustavo Novis Moreira</h1>
+                        <div class="contact-info">
+                            <p><i class="fas fa-envelope"></i> <strong>E-mail:</strong> gustnmoreira@gmail.com</p>
+                            <p><i class="fas fa-phone"></i> <strong>Telefone:</strong> (11) 98056-7101</p>
+                        </div>
+                        <div class="social-links">
+                            <a href="https://www.linkedin.com/in/gustavo-novis-moreira/" target="_blank">
+                                <i class="fab fa-linkedin"></i> LinkedIn
+                            </a>
+                            <a href="https://github.com/" target="_blank">
+                                <i class="fab fa-github"></i> GitHub
+                            </a>
+                        </div>
+                    </div>
+                </header>
+                
+                <!-- Objetivo -->
+                <section class="section" id="objetivo">
+                    <h2><i class="fas fa-bullseye"></i> Objetivo</h2>
+                    <p>
+                        Busco oportunidades para aplicar meus conhecimentos em desenvolvimento web,
+                        Python e banco de dados, contribuindo para soluções inovadoras e o crescimento da equipe.
+                    </p>
+                </section>
+                
+                <!-- Competências -->
+                <section class="section" id="competencias">
+                    <h2><i class="fas fa-lightbulb"></i> Competências</h2>
+                    <ul>
+                        <li><span class="highlight">Automações e manipulação de dados em Python</span> (Frameworks: pandas, Flask, Django, numpy, seaborn, matplotlib)</li>
+                        <li><span class="highlight">Desenvolvimento Web</span> (HTML5, CSS3 e JavaScript)</li>
+                        <li><span class="highlight">Banco de Dados</span> (MySQL, Oracle SQL, SQL Server, SQL Server Integration Service)</li>
+                        <li><span class="highlight">Desenvolvimento de APIs</span></li>
+                        <li><span class="highlight">Criação de Dashboards</span></li>
+                    </ul>
+                </section>
+                
+                <!-- Formação Acadêmica -->
+                <section class="section" id="formacao">
+                    <h2><i class="fas fa-graduation-cap"></i> Formação e Cursos</h2>
+                    
+                    <div class="item item-main">
+                        <h3>Ciência da Computação <span class="degree-badge">Formação Principal</span></h3>
+                        <p>Universidade Anhembi Morumbi - UAM | 01/2023 - 12/2026</p>
+                    </div>
+                    
+                    <div class="item">
+                        <h3>Introdução a lógica de programação com Python</h3>
+                        <p>Coursera | 2024</p>
+                    </div>
+                    <div class="item">
+                        <h3>Banco de dados</h3>
+                        <p>Fundação Bradesco | 2025</p>
+                    </div>
+                    <div class="item">
+                        <h3>Oracle SQL e PL/SQL</h3>
+                        <p>Udemy | 2025</p>
+                    </div>
+                </section>
+                
+                <!-- Experiência Profissional -->
+                <section class="section" id="experiencia">
+                    <h2><i class="fas fa-briefcase"></i> Experiência Profissional</h2>
+                    <div class="item">
+                        <h3>Desenvolvedor - Jovem Aprendiz</h3>
+                        <p>Vivo - Telefônica Brasil | Jul/24 - Set/25</p>
+                        <ul>
+                            <li>Desenvolvimento de aplicações web com HTML, CSS e JavaScript.</li>
+                            <li>Criação de scripts em Python para automação de processos.</li>
+                            <li>Manipulação de dados e processos ETL nos Bancos de dados.</li>
+                            <li>Criação de Dashboards pelo Power BI</li>
+                            <li>Uso do Pacote Office para análise de dados</li>
+                        </ul>
+                    </div>
+                </section>
+                
+                <!-- Rodapé -->
+                <footer>
+                    <p>&copy; 2025 - Gustavo Novis | Todos os direitos reservados</p>
+                </footer>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Efeito de digitação no título
+        document.addEventListener('DOMContentLoaded', function() {
+            const title = document.querySelector('.header h1');
+            const originalText = title.textContent;
+            title.textContent = '';
+            let i = 0;
+            
+            function typeWriter() {
+                if (i < originalText.length) {
+                    title.textContent += originalText.charAt(i);
+                    i++;
+                    setTimeout(typeWriter, 100);
+                }
+            }
+            
+            setTimeout(typeWriter, 500);
+            
+            // Efeito de reveal nas seções ao rolar
+            const sections = document.querySelectorAll('.section');
+            
+            const revealSection = function(entries, observer) {
+                const [entry] = entries;
+                if (!entry.isIntersecting) return;
+                entry.target.style.opacity = 1;
+                entry.target.style.transform = 'translateY(0)';
+                observer.unobserve(entry.target);
+            };
+            
+            const sectionObserver = new IntersectionObserver(revealSection, {
+                root: null,
+                threshold: 0.15,
+            });
+            
+            sections.forEach(section => {
+                section.style.opacity = 0;
+                section.style.transform = 'translateY(50px)';
+                section.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+                sectionObserver.observe(section);
+            });
+        });
+    </script>
+</body>
+</html>
