@@ -1,0 +1,210 @@
+/* ===== RESET ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* ===== BORDAS LATERAIS ===== */
+.borda_lateral {
+    border-left: 100px solid rgb(0, 0, 0);
+    border-right: 100px solid rgb(0, 0, 0);
+}
+
+/* ===== BODY ===== */
+body {
+    background-color: #000; /* Mude para preto sólido */
+    color: var(--text-color);
+    line-height: 1.6;
+    font-size: 18px;
+    padding: 20px;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #000;
+    }
+
+/* ===== CONTAINERS ===== */
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* ===== CONTATO COM IMAGEM ===== */
+#contato {
+    background: url("imagem_programacao.jpg") no-repeat center center;
+    background-size: cover;
+    padding: 0px 20px;
+    text-align: center;
+    color: #fff;
+    position: relative;
+    height: 250px;
+    display: block;
+    border-radius: 15px;
+}
+
+/* Camada escura sobre a imagem */
+#contato::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.55);
+    z-index: 1;
+}
+
+#contato .contato-box {
+    position: relative;
+    z-index: 2;
+    text-align: end;    
+}
+
+/* ===== LINKS ===== */
+#contato .links {
+    margin-top: 15px;
+}
+
+#contato .links a {
+    color: #fff;
+    text-decoration: none;
+    margin: 0 10px;
+    font-weight: bold;
+    background: rgba(0, 0, 0, 0.4);
+    padding: 8px 14px;
+    border-radius: 6px;
+    transition: background 0.3s;
+}
+
+#contato .links a:hover {
+    background: rgba(0, 0, 0, 0.7);
+}
+
+/* ===== SEÇÕES ===== */
+section {
+    margin: 30px 0;
+    padding: 20px;
+    background: rgb(15, 15, 15);
+    border-radius: 12px;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.4);
+}
+
+/* ===== TÍTULOS ===== */
+h2 {
+    color: rgb(165, 165, 165);
+    margin-bottom: 10px;
+    font-size: 22px;
+}
+
+/* ===== LISTAS ===== */
+ul {
+    padding-left: 20px;
+}
+ul li {
+    margin-bottom: 8px;
+}
+
+/* ===== ITENS DE EXPERIÊNCIA E FORMAÇÃO ===== */
+.item {
+    margin-bottom: 15px;
+}
+.item h3 {
+    color: #ffffff;
+}
+
+/* ===== RODAPÉ ===== */
+footer {
+    text-align: center;
+    padding: 15px;
+    margin-top: 20px;
+    font-size: 14px;
+    color: #ffffff;
+    background-color: rgb(22, 22, 22);
+    box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.5);
+}
+
+/* ===== BORDAS INTERNAS COM GRADIENTE ===== */
+.borda_gradiente {
+    border: 3px solid transparent;
+    border-radius: 10px;
+    background-image: linear-gradient(90deg, black, rgb(0, 0, 55), rgb(0, 0, 75), rgb(0, 0, 55), black);
+    background-size: 300% 100%;
+    animation: animarBorda 6s linear infinite;
+    -webkit-background-clip: border-box;
+    background-clip: border-box;
+}
+
+/* ===== BORDAS PRINCIPAIS ANIMADAS ===== */
+.borda_div_principal {
+    position: relative;
+    border-radius: 15px;
+    padding: 20px;
+    margin-top: 0;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(0, 0, 0);
+}
+
+/* Gradiente animado da borda principal */
+.borda_div_principal::before {
+    content: "";
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    border-radius: 15px;
+    background: linear-gradient(90deg, #000, #0011aa, #0033ff, #5500ff, #000);
+    background-size: 300% 300%;
+    animation: moverGradiente 6s linear infinite;
+    z-index: -1;
+}
+
+/* Fundo interno para manter contraste */
+.borda_div_principal::after {
+    content: "";
+    position: absolute;
+    top: 6px;
+    left: 6px;
+    right: 6px;
+    bottom: 6px;
+    border-radius: 10px;
+    background-color: rgb(0, 0, 0);
+    z-index: -1;
+}
+
+/* Animação do gradiente */
+@keyframes moverGradiente {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+
+.portfolio-container {
+    background: rgba(0, 0, 0, 0.95); /* Fundo quase preto sólido */
+    border-radius: 15px;
+    overflow: hidden;
+    padding: 0;
+}
+
+.header {
+    background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1461749280684-dccba630e2f6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1500&q=80') no-repeat center center;
+    /* Ajuste os gradientes para tons mais escuros */
+}
+
+.section {
+    background: rgba(10, 10, 10, 0.9); /* Fundo mais escuro para as seções */
+    border: 1px solid rgba(50, 50, 50, 0.5); /* Borda mais escura */
+}
